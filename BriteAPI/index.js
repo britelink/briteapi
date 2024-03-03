@@ -5,8 +5,9 @@ class BaseBriteAPI {
     if (!apiKey) {
       throw new Error("BriteAPI: An API key is required");
     }
+    this.baseURL = "https://www.britelink.io/api/";
     this.client = axios.create({
-      baseURL: "https://www.britelink.io/api/v1/",
+      baseURL: this.baseURL,
       headers: {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
@@ -16,6 +17,12 @@ class BaseBriteAPI {
 
   // Generic fetch method for all GET requests
   async fetch(endpoint) {
+    // Check if the endpoint accidentally includes the base URL
+    if (endpoint.startsWith(this.baseURL)) {
+      // Remove the base URL from the endpoint
+      endpoint = endpoint.replace(this.baseURL, "");
+    }
+
     try {
       const response = await this.client.get(endpoint);
       return response.data;
@@ -30,10 +37,6 @@ class BaseBriteAPI {
   }
 }
 
-// Since the API operations are uniform and focused on GET requests,
-// no need to differentiate between BriteAPI and NextBriteAPI.
-// However, the structure is left here for future extension or if
-// environment-specific functionality becomes necessary.
 class BriteAPI extends BaseBriteAPI {
   // Extend the BaseBriteAPI with methods specific to JavaScript environments if needed
 }

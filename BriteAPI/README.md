@@ -42,19 +42,68 @@ import { BriteAPI } from "briteapi";
 const briteAPI = new BriteAPI("your_api_key_here");
 ```
 
-### Making Requests
+## Making Requests
 
-To make a GET request to an endpoint:
+When making API requests using the BriteAPI SDK, it's important to remember that the SDK is pre-configured with the base URL (`https://www.britelink.io/api/`). This means you should **not** include the base URL in your endpoint strings; simply start with the API version and endpoint path.
+
+### Basic Endpoint
+
+For primary endpoints, start directly with the version (`v1/`) followed by the endpoint name. Do **not** add the base URL (`https://www.britelink.io/api/`), as the SDK already handles this for you.
 
 ```javascript
-// Example: Fetch data from the 'drugs' endpoint
+// Correct usage - No need to specify the full URL
 briteAPI
-  .fetch("drugs")
+  .fetch("v1/drugs")
   .then((data) => console.log(data))
   .catch((error) => console.error("Error:", error));
 ```
 
-Replace `'drugs'` with the specific endpoint you wish to access.
+### Secondary and Quaternary Endpoints
+
+Similarly, for accessing secondary or quaternary endpoints, you only need to specify the endpoint path starting from the version indicator (`v1/`), followed by the resource name and any required parameters or IDs. The SDK takes care of appending this to the base URL.
+
+Example for a secondary endpoint:
+
+```javascript
+const drugId = "12345"; // Example ID
+// Just use the endpoint and the SDK will append it to the base URL
+briteAPI
+  .fetch(`v1/drugs/${drugId}`)
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error:", error));
+```
+
+And for a quaternary endpoint with additional query parameters:
+
+```javascript
+const drugId = "12345"; // Example ID for the primary resource
+// Directly specify the endpoint with parameters; no need for the full URL
+briteAPI
+  .fetch(`v1/drugs/${drugId}/details?f=true&cursor=someValue`)
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error:", error));
+```
+
+### Dynamic Parameters
+
+For dynamic parameters such as IDs, use JavaScript template literals for ease of insertion into the endpoint string. Remember, there's no need to add the base URL at the beginning of your endpoint string.
+
+Example using a dynamic parameter:
+
+```javascript
+const userId = "abc123";
+// Directly start with the API version and endpoint path
+briteAPI
+  .fetch(`v1/users/${userId}`)
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error:", error));
+```
+
+By following these guidelines, you can ensure your requests are properly formatted without needing to manually include the base URL, allowing for a more streamlined and error-free integration with the BriteAPI SDK.
+
+---
+
+This addition makes it clear to the users that the SDK simplifies the request process by automatically handling the base URL, focusing their attention on the endpoint paths and parameters needed for their specific API calls.
 
 ### Next.js Projects
 
@@ -87,7 +136,7 @@ const SDK = () => {
         "secret_699038a1-a1de-4f70-8e63-308f2c8caf48"
       );
       try {
-        const fetchedData = await briteAPI.fetch("drugs");
+        const fetchedData = await briteAPI.fetch("v1/drugs");
         setData(fetchedData);
       } catch (error) {
         console.error(error);
