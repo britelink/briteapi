@@ -1,4 +1,4 @@
-# briteAPI JavaScript SDK
+# BriteAPI
 
 The official JavaScript SDK for interfacing with briteAPI. This SDK simplifies interacting with briteAPI services directly from your JavaScript-based applications, whether in a Node.js, browser, or Next.js environment.
 
@@ -99,11 +99,7 @@ briteAPI
   .catch((error) => console.error("Error:", error));
 ```
 
-By following these guidelines, you can ensure your requests are properly formatted without needing to manually include the base URL, allowing for a more streamlined and error-free integration with the BriteAPI SDK.
-
----
-
-This addition makes it clear to the users that the SDK simplifies the request process by automatically handling the base URL, focusing their attention on the endpoint paths and parameters needed for their specific API calls.
+## For specific end points refer to the menu on our [documentation](docs.britelink.io).
 
 ### Next.js Projects
 
@@ -180,7 +176,7 @@ briteAPI
 
 ## Contributions
 
-Contributions are very welcome! Feel free to open issues or submit pull requests on our [GitHub repository](https://github.com/britelink/briteapi-sdks).
+Contributions are very welcome! Feel free to open issues or submit pull requests on our [GitHub repository](https://github.com/britelink/briteapi/tree/main/BriteAP).
 
 ## Support
 
@@ -188,6 +184,6 @@ For support, please open an issue on GitHub or reach out to our support team dir
 
 ## License
 
-This SDK is available under the MIT License. For more details, see the [LICENSE](LICENSE) file.
+This SDK is available under the MIT License. For more details, see the [LICENSE](https://github.com/britelink/briteapi/tree/main/BriteAP) file.
 
 ---
