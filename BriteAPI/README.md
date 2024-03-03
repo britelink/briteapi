@@ -72,19 +72,46 @@ Then, you can use the SDK in your pages or API routes as follows:
 
 ```javascript
 // page.jsx
+"use client";
+import React, { useState, useEffect } from "react";
+
 import { NextBriteAPI } from "briteapi";
 
-export async function getData() {
-  const briteAPI = new NextBriteAPI(process.env.NEXT_PRIVATE_BRITEAPI_KEY);
+const SDK = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
-  try {
-    const data = await briteAPI.fetch("drugs");
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-    console.log(error.message);
-  }
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      const briteAPI = new NextBriteAPI(
+        "secret_699038a1-a1de-4f70-8e63-308f2c8caf48"
+      );
+      try {
+        const fetchedData = await briteAPI.fetch("drugs");
+        setData(fetchedData);
+      } catch (error) {
+        console.error(error);
+        setError(error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array means this effect runs once on mount
+
+  return (
+    <main className="max-w-5xl m-auto w-full px-4">
+      <h1>Hello from BriteLink SDK</h1>
+      {error && <p>Error fetching data</p>}
+      {data ? (
+        <pre>{JSON.stringify(data, null, 2)}</pre> // Pretty print the JSON data
+      ) : (
+        <p>Loading...</p>
+      )}
+    </main>
+  );
+};
+
+export default SDK;
 ```
 
 ## Available Methods
@@ -115,5 +142,3 @@ For support, please open an issue on GitHub or reach out to our support team dir
 This SDK is available under the MIT License. For more details, see the [LICENSE](LICENSE) file.
 
 ---
-
-This revised README provides a comprehensive guide for using the briteAPI JavaScript SDK across various JavaScript environments, ensuring users can easily integrate it into their projects.
