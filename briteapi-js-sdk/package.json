@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/briteapi-js-sdk.git"
+    "url": "git+https://github.com/britelink/briteapi-sdks/tree/main/briteapi-js-sdk"
   },
   "keywords": [
     "briteapi",
@@ -20,9 +20,9 @@
   "author": "Tinotenda Joe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourusername/briteapi-js-sdk/issues"
+    "url": "https://github.com/britelink/briteapi-sdks/tree/main/briteapi-js-sdk/issues"
   },
-  "homepage": "https://github.com/yourusername/briteapi-js-sdk#readme",
+  "homepage": "https://github.com/britelink/briteapi-sdks/tree/main/briteapi-js-sdk#readme",
   "dependencies": {
     "axios": "^0.21.1"
   }
