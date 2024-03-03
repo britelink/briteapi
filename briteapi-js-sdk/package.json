@@ -1,0 +1,29 @@
+{
+  "name": "briteapi-js-sdk",
+  "version": "1.0.0",
+  "description": "JavaScript SDK for briteAPI services.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/briteapi-js-sdk.git"
+  },
+  "keywords": [
+    "briteapi",
+    "sdk",
+    "restful",
+    "api",
+    "britelink"
+  ],
+  "author": "Tinotenda Joe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/briteapi-js-sdk/issues"
+  },
+  "homepage": "https://github.com/yourusername/briteapi-js-sdk#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
