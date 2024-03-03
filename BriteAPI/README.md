@@ -22,7 +22,7 @@ Or, if you prefer yarn:
 yarn add briteapi
 ```
 
-## Usage - see complete [documention](https://www.docs.britelink.io)
+## Usage - see complete [documention](https://docs.britelink.io/)
 
 ### General Setup
 
