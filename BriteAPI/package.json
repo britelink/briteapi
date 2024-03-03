@@ -1,0 +1,33 @@
+{
+  "name": "briteapi",
+  "version": "1.0.1",
+  "description": "JavaScript SDK for briteAPI services.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/britelink/briteapi-sdks/tree/main/briteapi"
+  },
+  "keywords": [
+    "briteapi",
+    "drugs",
+    "health",
+    "medical", 
+    "pharmacy",
+     "patient", 
+    "restful",
+    "api",
+    "britelink"
+  ],
+  "author": "Tinotenda Joe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/britelink/briteapi-sdks/tree/main/briteapi/issues"
+  },
+  "homepage": "https://github.com/britelink/briteapi-sdks/tree/main/briteapi#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
